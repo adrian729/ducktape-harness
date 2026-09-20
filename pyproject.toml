@@ -1,0 +1,59 @@
+[project]
+name = "ducktape-harness"
+version = "0.1.0"
+description = "A small, principled agent harness over ducktape-provider: REPL, tool-use loop with permission gating, usage and context tracking — stdlib only."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Adrian Sanchez Albanell", email = "adrian.sanchez.albanell@gmail.com" }
+]
+requires-python = ">=3.12,<3.15"
+dependencies = ["ducktape-provider"]
+keywords = ["llm", "agent", "harness", "cli", "repl", "tool-use", "anthropic", "claude", "openai", "ollama"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Artificial Intelligence",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+ducktape = "ducktape_harness.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/adrian729/ducktape-harness"
+Repository = "https://github.com/adrian729/ducktape-harness"
+Issues = "https://github.com/adrian729/ducktape-harness/issues"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["ruff>=0.16.7,<0.17"]
+
+[tool.uv.sources]
+# Public builds resolve the provider from its repo (the lock pins the exact
+# commit). For provider co-development, swap to:
+#   ducktape-provider = { path = "../ducktape-provider", editable = true }
+ducktape-provider = { git = "https://github.com/adrian729/ducktape-provider" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+# line-length inherited from [tool.ruff]
