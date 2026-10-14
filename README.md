@@ -1,5 +1,7 @@
 # ducktape-harness
 
+<img src="assets/ducktape-logo.png" alt="Ducktape logo" width="240">
+
 A small agent harness on top of [ducktape-provider](https://github.com/adrian729/ducktape-provider): chat with any supported model in a REPL, let it call your files and shell through a permission gate, and keep usage/context in view.
 
 ```
